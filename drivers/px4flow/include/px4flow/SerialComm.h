@@ -44,6 +44,7 @@ private:
     uint8_t m_buffer[MAVLINK_MAX_PACKET_LEN];
 
     ros::Publisher m_optFlowPub;
+    ros::Publisher m_optFlowRadPub;
     image_transport::Publisher m_imagePub;
     std::string m_frameId;
 
