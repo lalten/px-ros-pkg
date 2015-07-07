@@ -1,2 +1,2 @@
-serial_port: /dev/ttyACM3
+serial_port: /dev/ttyUSB_px4
 baudrate:    115200
