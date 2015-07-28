@@ -161,6 +161,9 @@ SerialComm::readCallback(const boost::system::error_code& error, size_t bytesTra
             {
             case MAVLINK_MSG_ID_OPTICAL_FLOW:
             {
+                if (m_optFlowRadPub.getNumSubscribers() == 0){
+                    break;
+                }
                 // decode message
                 mavlink_optical_flow_t flow;
                 mavlink_msg_optical_flow_decode(&message, &flow);
@@ -182,6 +185,9 @@ SerialComm::readCallback(const boost::system::error_code& error, size_t bytesTra
             }
             case MAVLINK_MSG_ID_OPTICAL_FLOW_RAD:
             {
+                if (m_optFlowRadPub.getNumSubscribers() == 0){
+                    break;
+                }
                 // decode message
                 mavlink_optical_flow_rad_t flowRad;
                 mavlink_msg_optical_flow_rad_decode(&message, &flowRad);
@@ -207,6 +213,9 @@ SerialComm::readCallback(const boost::system::error_code& error, size_t bytesTra
             }
             case MAVLINK_MSG_ID_DATA_TRANSMISSION_HANDSHAKE:
             {
+                if (m_imagePub.getNumSubscribers() == 0){
+                    break;
+                }
                 mavlink_data_transmission_handshake_t handshake;
                 mavlink_msg_data_transmission_handshake_decode(&message, &handshake);
 
@@ -225,6 +234,9 @@ SerialComm::readCallback(const boost::system::error_code& error, size_t bytesTra
             }
             case MAVLINK_MSG_ID_ENCAPSULATED_DATA:
             {
+                if (m_imagePub.getNumSubscribers() == 0){
+                    break;
+                }
                 if (m_imageSize == 0 || m_imagePackets == 0)
                 {
                     break;
