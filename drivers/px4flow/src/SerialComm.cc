@@ -161,7 +161,7 @@ SerialComm::readCallback(const boost::system::error_code& error, size_t bytesTra
             {
             case MAVLINK_MSG_ID_OPTICAL_FLOW:
             {
-                if (m_optFlowRadPub.getNumSubscribers() == 0){
+                if (m_optFlowPub.getNumSubscribers() == 0){
                     break;
                 }
                 // decode message
