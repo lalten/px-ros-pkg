@@ -175,9 +175,14 @@ SerialComm::readCallback(const boost::system::error_code& error, size_t bytesTra
                 optFlowMsg.ground_distance = flow.ground_distance;
                 optFlowMsg.flow_x = flow.flow_x;
                 optFlowMsg.flow_y = flow.flow_y;
+                optFlowMsg.velocity_x_raw = flow.flow_comp_x;
+                optFlowMsg.velocity_y_raw = flow.flow_comp_y;
                 optFlowMsg.velocity_x = flow.flow_comp_m_x;
                 optFlowMsg.velocity_y = flow.flow_comp_m_y;
                 optFlowMsg.quality = flow.quality;
+
+                //ROS_INFO_STREAM("Velocity_x:" << flow.flow_comp_m_x << " vs Own calculated Velocity_x" << (flow.flow_comp_x * flow.ground_distance));
+                //ROS_INFO_STREAM("Velocity_y:" << flow.flow_comp_m_y << " vs Own calculated Velocity_y" << (flow.flow_comp_y * flow.ground_distance));
 
                 m_optFlowPub.publish(optFlowMsg);
 
