@@ -1,2 +1,2 @@
-serial_port: /dev/ttyUSB_px4
+serial_port: /dev/serial/by-id/usb-3D_Robotics_PX4Flow_v1.3_000000000000-if00
 baudrate:    115200
